@@ -3,7 +3,8 @@
 
 # 데이터
 
-![image.png](image.png)
+![image](https://github.com/user-attachments/assets/5c84457e-06f1-4f8a-80b2-8192cee7694c)
+
 
 - event_time: 이벤트가 발생한 시각
 - event_type: 이벤트 종류

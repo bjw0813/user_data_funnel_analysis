@@ -42,8 +42,8 @@ data["event_time"]=pd.to_datetime(data["event_time"])
 ```python
 data.isna().sum()
 ```
+![image](https://github.com/user-attachments/assets/2ac8a91b-0697-4850-b238-8947293a5892)
 
-![image.png](image%201.png)
 
 결측값이 너무 많아 `category_id`와 `category_code`는 drop하기로 결정
 
@@ -57,7 +57,8 @@ data["date_ymd"]=data["event_time"].dt.date
 
 DAU(일간 활성 사용자 수)를 위해 date_ymd라는 필드를 따로 만들어줬다
 
-![image.png](image%202.png)
+![image](https://github.com/user-attachments/assets/750d6581-6761-4d79-8bec-d725c0cf06f0)
+
 
 # 데이터 분석
 
@@ -68,7 +69,8 @@ dau=data.groupby("date_ymd")[["user_id"]].nunique().reset_index().rename({"user_
 dau.head(10)
 ```
 
-![image.png](image%203.png)
+![image](https://github.com/user-attachments/assets/5baba2ed-8f55-42bb-9451-98978f8dc7f8)
+
 
 ```python
 plt.figure(figsize=(12,5))
@@ -78,7 +80,8 @@ plt.title("DAU")
 plt.show()
 ```
 
-![image.png](image%204.png)
+![image](https://github.com/user-attachments/assets/a4aa768c-2aae-4576-9b13-189a83240edc)
+
 
 ```python
 import plotly.express as px 
@@ -87,7 +90,8 @@ px.line(data_frame=dau,x="date_ymd",y="dau")
 #장점: 그래프가 예쁘고(R같은 느낌), 이미지 저장도 용이하다.
 ```
 
-![image.png](image%205.png)
+![image](https://github.com/user-attachments/assets/90ddd726-8abe-4423-a32d-b3514ce4da55)
+
 
 ```python
 dau["date_ymd"]=pd.to_datetime(dau["date_ymd"])
@@ -98,7 +102,8 @@ order=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 px.bar(data_frame=avg_dau,x="dayname",y="dau",category_orders={"dayname":order})#화요일에 활성이용자수가 가장 높고, 주말이 가장 적다.
 ```
 
-![image.png](image%206.png)
+![image](https://github.com/user-attachments/assets/3277ecae-1b9b-41e0-baa6-9b26f07b7698)
+
 
 ## 고객들의 사이트 체류시간 평균은?
 
@@ -160,8 +165,8 @@ funnel_chart=px.funnel(data_frame=funnel, x="event_type", y="rate")
 funnel_chart.update_traces(texttemplate = "%{value:,.2%}")
 
 ```
+![image](https://github.com/user-attachments/assets/8723df3a-55c6-46a3-8e03-27e3ef761f5e)
 
-![image.png](image%207.png)
 
 **카트에서 구매단계로 넘어가는 과정에서 가장 큰 이탈이 발생하는 것을 확인할 수 있다!**
 
